@@ -1,0 +1,22 @@
+June 11, 2025
+team: do mockup (figma)
+Louis
+- do mock-up
+
+Shao Hang
+- do mock-up
+
+Trang
+- create github (Movie Explorer) (done)
+- create figma (done)
+- create an gmail so we can use for API KEY
+- do mock-up
+
+
+3 pages:
+1/ HOME show movies(now playing/popular/top rated/upcoming) + searchbar (Trang)
+2/ Movie Details (images, details casting, year, RATING, etc...) + (more like this) (Louis)
+3/ Add Favorite/Watchlist/ + movie suggestion (Shao Hang)
+ 
+Additional page: 
+4/ actor/actress
