@@ -1,0 +1,21 @@
+REACT:
+npx create-react-app movieexplorer
+
+=====================================
+
+NODEMON
+npm install NODEMON
+
+=====================================
+
+TAILWIND: v3.4.1
+npm install -D tailwindcss@3.4.1
+npx tailwindcss init
+
+========================================
+
+DAISYUI v3.4.0
+npm install daisyui@3.4.0
+/* in public/index.html
+ * add in <html> to  class="dark"
+ */
