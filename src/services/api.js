@@ -8,3 +8,29 @@ export const getPopularMovies = async () => {
   const data = await response.json();
   return data.results;
 };
+
+// fetch trending movies
+export const getTrendingMovies = async () => {
+  const response = await fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.results;
+};
+
+// fetch recommendations by genre
+export const getRecommendationsByGenre = async (genreId) => {
+  const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
+  const data = await response.json();
+  return data.results;
+};
+
+// fetch user favorites (simulate with popular for now)
+export const getUserFavorites = async () => {
+  // In a real app, this would be user-specific. For now, use popular movies as a placeholder.
+  return getPopularMovies();
+};
+
+// fetch user watchlist (simulate with trending for now)
+export const getUserWatchlist = async () => {
+  // In a real app, this would be user-specific. For now, use trending movies as a placeholder.
+  return getTrendingMovies();
+};
