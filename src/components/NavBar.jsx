@@ -16,7 +16,7 @@ export default function Navbar() {
             <li><Link to="/movies">Movies</Link></li>
             <li><Link to="/tv">TV Shows</Link></li>
             <li><Link to="/people">People</Link></li>
-            <li><Link to="/favorites">Favorite/Watchlist</Link></li>
+            <li><Link to="/favorites-watchlist-recommendations">Favorites/Watchlist/Recommendations</Link></li>
           </ul>
         </div>
         <Link

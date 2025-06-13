@@ -8,6 +8,11 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< Updated upstream
+=======
+    "axios": "^1.9.0",
+    "lucide": "^0.515.0",
+>>>>>>> Stashed changes
     "nodemon": "^3.1.10",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
