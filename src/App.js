@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
+import MovieDetails from "./pages/MovieDetails";
 import FavoriteWatchlistRecommendations from "./pages/Favorite_Watchlist_Recommendations";
 
 function App() {
@@ -9,15 +10,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-<<<<<<< Updated upstream
         <Route path="/favorites-watchlist-recommendations" element={<FavoriteWatchlistRecommendations />} />
-=======
-        <Route
-          path="/favorites-watchlist-recommendations"
-          element={<FavoriteWatchlistRecommendations />}
-        />
         <Route path="/movie/:id" element={<MovieDetails />} />
->>>>>>> Stashed changes
       </Routes>
     </BrowserRouter>
   );
