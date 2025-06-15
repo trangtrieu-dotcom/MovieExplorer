@@ -19,3 +19,18 @@ npm install daisyui@3.4.0
 /* in public/index.html
  * add in <html> to  class="dark"
  */
+
+ ==========================================
+
+ AXIOS
+ npm i AXIOS
+
+ ======================================
+
+ LUCIDE ICON
+ npm install lucide-react
+
+ =======================================
+
+ REACT SLICK (for carousel)
+npm install slick-carousel --save

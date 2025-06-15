@@ -1,3 +1,4 @@
+========================================
 June 11, 2025
 team: do mockup (figma)
 Louis
@@ -20,3 +21,60 @@ Trang
  
 Additional page: 
 4/ actor/actress
+
+==================================
+JUNE 12, 2025
+
+Louis
+what did you do yesterday : Created the mockup for the movie details page.
+what are you going to do today: Start coding the movie details. Setting up the layout, fetching data from TMDB, and building the cast and trailer sections.
+any block/help from the team: Not yet      
+
+Shao Hang
+what did you do yesterday :
+Create the figma design of our website (Watchlist/Favorites/Movie Recommendations)
+what are you going to do today
+Figuring out the API and creating the project structure, maybe start working on the advanced search bar
+any block/help from the team
+Not yet, but I will need to figure out how to use the API and check it's documentation
+
+Trang
+what did you do yesterday : I finished the mockup for my part in the project
+what are you going to do today: I will start coding for my part (fetch API for movies on Home Page) and search bar
+any block/help from the team: N/A
+
+
+
+====================================
+JUNE 13, 2025
+
+Louis
+what did you do yesterday : Created MovieOverview + MovieHero + MovieDetails
+what are you going to do today: Create CastCard + CastSection + SimilarMovies
+any block/help from the team: Not yet    
+
+Shao Hang
+what did you do yesterday : Created the logic for the movie recommendation list 
+what are you going to do today: Start the favorite, watchlist and the recommendations since I already have the Logic for the recommendation feature.
+any block/help from the team: Gonna change the structure of our code project (put the API code in service) and add some dependencies.
+
+Trang
+what I did: add navbar + moviecard + popular movies
+what im gonna do: populate trends movies + latest trailers + searchbar
+any block/help from team: not yet
+
+
+=====================================
+JUNE 14, 2025
+
+**Louis
+what did you do yesterday : Created CastCard + CastSection + SimilarMovies
+what are you going to do today: Add cast section cards scroll ability, connect movie cards from the homepage to route to their detailed views. Changing the trailer to open in a modal instead of playing directly on the page. 
+any block/help from the team: Not yet  
+
+
+**Shao Hang
+what did you do yesterday : created Login.jsx, auth.js in services for all the post request and get request, AuthContext.js, modified the nav bar so you only see when you login.
+what are you going to do today: Finish up the login features (with redirecting + login with username and password)
+this can take up to 2 days until i make it work. After this, I can continue on my watchlist and favorite list.
+any block/help from the team: No help, but I need to figure out the login redirecting since the login with juste the username and password is already implemented.
