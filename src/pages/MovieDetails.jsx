@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"; 
 import MovieHero from "../components/MovieHero";
@@ -14,6 +14,7 @@ function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
+  const [similarMovies, setSimilarMovies] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +33,11 @@ function MovieDetails() {
           (vid) => vid.type === "Trailer" && vid.site === "YouTube"
         );
         setTrailerKey(trailer?.key);
+
+        const similarRes = await axios.get(`${BASE_URL}/movie/${id}/similar?api_key=${API_KEY}`);
+        setSimilarMovies(similarRes.data.results);
+
+
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
@@ -49,6 +55,9 @@ function MovieDetails() {
     <div className="min-h-screen bg-base-100 text-base-content">
       <MovieHero movie={movie} trailerKey={trailerKey} />
       <MovieOverview movie={movie} director={director} topCast={topCast} />
+      <CastSection cast={topCast} />
+      <SimilarMovies movies={similarMovies} />
+      
     </div>
   );
 }

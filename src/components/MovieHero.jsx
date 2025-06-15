@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { Star } from "lucide-react";
+import TrailerModal from "./TrailerModal";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_URL = "https://image.tmdb.org/t/p/original";
 
 function MovieHero({ movie, trailerKey }) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { title, poster_path, backdrop_path, release_date, vote_average, genres, runtime, original_language, status } = movie;
 
     const year = release_date ? new Date(release_date).getFullYear() : "";
@@ -28,7 +32,7 @@ function MovieHero({ movie, trailerKey }) {
                     <div className="flex gap-4 items-center">
                         <div>
                             <p className="text-sm text-gray-400">User Rating</p>
-                            <p className="text-yellow-400 font-bold">⭐ {rating}/10</p>
+                            <p className="flex items-center text-yellow-400 font-bold"><Star className="mr-1" size={18}/>  {rating}/10</p>
                         </div>
                         <button className="btn btn-sm btn-primary">Watchlist</button>
                         <button className="btn btn-sm btn-secondary">Favorites</button>
@@ -41,14 +45,21 @@ function MovieHero({ movie, trailerKey }) {
                     </div>
                         
                         {trailerKey ? (
-                            <div className="ml-10 lg:ml-16 w-[640px] h-[360px] rounded-lg overflow-hidden">
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${trailerKey}`}
-                                    title="Trailer"
-                                    allowFullScreen
-                                    className="w-full h-full"
-                                >
-                                </iframe> 
+                            <div className="ml-10 lg:ml-16 w-[640px] h-[360px] rounded-lg overflow-hidden relative group"
+                                style={{
+                                backgroundImage: `url(https://img.youtube.com/vi/${trailerKey}/hqdefault.jpg)`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}>
+                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 flex items-center justify-center">
+                                    <button
+                                        className="btn btn-accent"
+                                        onClick={() => setIsModalOpen(true)}
+                                    >
+                                        Watch Trailer
+                                    </button>
+                                </div>
+                                
                             </div>
                             
                         ): (
@@ -62,6 +73,12 @@ function MovieHero({ movie, trailerKey }) {
                         ({original_language?.toUpperCase()} • {status})
                     </p>
                 </div>
+
+                <TrailerModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    trailerKey={trailerKey}
+                />
             </div>
         </div>
     );
