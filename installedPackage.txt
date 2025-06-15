@@ -28,4 +28,9 @@ npm install daisyui@3.4.0
  ======================================
 
  LUCIDE ICON
- npm install lucide
+ npm install lucide-react
+
+ =======================================
+
+ REACT SLICK (for carousel)
+npm install slick-carousel --save

@@ -62,3 +62,19 @@ Trang
 what I did: add navbar + moviecard + popular movies
 what im gonna do: populate trends movies + latest trailers + searchbar
 any block/help from team: not yet
+
+
+=====================================
+JUNE 14, 2025
+
+**Louis
+what did you do yesterday : Created CastCard + CastSection + SimilarMovies
+what are you going to do today: Add cast section cards scroll ability, connect movie cards from the homepage to route to their detailed views. Changing the trailer to open in a modal instead of playing directly on the page. 
+any block/help from the team: Not yet  
+
+
+**Shao Hang
+what did you do yesterday : created Login.jsx, auth.js in services for all the post request and get request, AuthContext.js, modified the nav bar so you only see when you login.
+what are you going to do today: Finish up the login features (with redirecting + login with username and password)
+this can take up to 2 days until i make it work. After this, I can continue on my watchlist and favorite list.
+any block/help from the team: No help, but I need to figure out the login redirecting since the login with juste the username and password is already implemented.
