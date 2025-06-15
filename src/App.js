@@ -5,6 +5,7 @@ import Navbar from "./components/layout/NavBar";
 import MovieDetails from "./pages/MovieDetails";
 import FavoriteWatchlistRecommendations from "./pages/Favorite_Watchlist_Recommendations";
 import Login from "./pages/Login";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           />
           <Route path="/movie/:id" element={<MovieDetails />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </AuthProvider>
   );
