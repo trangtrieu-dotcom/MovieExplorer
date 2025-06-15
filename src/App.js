@@ -9,12 +9,6 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-//       <nav>
-//         <ul>
-//           <li><Link to="/">Home</Link></li>
-//           <li><Link to="/favorites-watchlist-recommendations">Favorites/Watchlist/Recommendations</Link></li>
-//         </ul>
-//       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites-watchlist-recommendations" element={<FavoriteWatchlistRecommendations />} />

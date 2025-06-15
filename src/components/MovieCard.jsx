@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   // https://developer.themoviedb.org/docs/image-basics
@@ -5,7 +6,7 @@ const MovieCard = ({ movie }) => {
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 
   return (
-    <div className="card bg-base-100 w-80 shadow-sm border border-base-200">
+    <Link to={`/movie/${movie.id}`} className="card bg-base-100 w-80 shadow-sm border border-base-200">
       {/* image section */}
       <figure>
         <img
@@ -33,7 +34,7 @@ const MovieCard = ({ movie }) => {
           <div className="badge badge-outline">Popular</div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
