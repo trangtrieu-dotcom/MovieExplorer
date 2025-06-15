@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  // template from DaisyUI
   return (
     <div className="navbar bg-base-100 shadow-sm">
       {/* dropdown for responsive screen */}
