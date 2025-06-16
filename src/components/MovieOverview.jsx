@@ -15,10 +15,10 @@ function MovieOverview({ movie, director, topCast}) {
                     {director?.name || "Unknown"}
                 </p>
 
-                <p className="test-sm text-gray-400">
+                <p className="text-sm text-gray-400">
                     <span className="font-semibold text-base-content">Stars:</span>{" "}
                     {topCast && topCast.length > 0
-                        ? topCast.slice(onabort, 3).map((actor) => actor.name).join(", ") : "Unknown"}
+                        ? topCast.slice(0, 3).map((actor) => actor.name).join(", ") : "Unknown"}
                 </p>
             </div>
         </div>

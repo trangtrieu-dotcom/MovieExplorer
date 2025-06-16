@@ -5,9 +5,9 @@ import MovieHero from "../components/MovieHero";
 import MovieOverview from "../components/MovieOverview";
 import CastSection from "../components/CastSection";
 import SimilarMovies from "../components/SimilarMovies";
+import { getMovieDetails, getMovieCredits, getMovieVideos, getSimilarMovies } from "../services/api";
 
-const API_KEY = "c9f30a7b1101b3b3521afa24010174f3";
-const BASE_URL = "https://api.themoviedb.org/3";
+
 
 function MovieDetails() {
   const { id } = useParams();
@@ -19,25 +19,24 @@ function MovieDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [movieRes, creditsRes, videosRes] = await Promise.all([
-          axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`),
-          axios.get(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`),
-          axios.get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`),
-        ]);
+        // fetch movie details
+        const movieData = await getMovieDetails(id);
+        setMovie(movieData);
 
-        setMovie(movieRes.data);
-        setCredits(creditsRes.data);
-        
+        // fetch credits
+        const creditsData = await getMovieCredits(id);
+        setCredits(creditsData);
 
-        const trailer = videosRes.data.results.find(
+        // fetch trailer
+        const videosData = await getMovieVideos(id);
+        const trailer = videosData.results.find(
           (vid) => vid.type === "Trailer" && vid.site === "YouTube"
         );
         setTrailerKey(trailer?.key);
 
-        const similarRes = await axios.get(`${BASE_URL}/movie/${id}/similar?api_key=${API_KEY}`);
-        setSimilarMovies(similarRes.data.results);
-
-
+        // fetch simlar movies
+        const similarData = await getSimilarMovies(id);
+        setSimilarMovies(similarData.results);
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
