@@ -11,17 +11,21 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/favorites-watchlist-recommendations"
-            element={<FavoriteWatchlistRecommendations />}
-          />
-          <Route path="/movie/:id" element={<MovieDetails />} />
-        </Routes>
-        <Footer />
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/favorites-watchlist-recommendations"
+                element={<FavoriteWatchlistRecommendations />}
+              />
+              <Route path="/movie/:id" element={<MovieDetails />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </AuthProvider>
   );
