@@ -1,5 +1,5 @@
 import MovieCarousel from "../components/home/MovieCarousel.jsx";
-
+import UpcomingMovies from "../components/home/UpcomingMovies.jsx";
 
 function Home() {
   return (
@@ -7,6 +7,9 @@ function Home() {
       <div className="px-8">
         <h2 className="text-xl font-semibold text-white mt-12 mb-6">Popular</h2>
         <MovieCarousel type="popular" />
+
+        <h2 className="text-xl font-semibold text-white mt-12 mb-6">Upcoming</h2>
+        <UpcomingMovies />
 
         <h2 className="text-xl font-semibold text-white mt-12 mb-6">Top Rated</h2>
         <MovieCarousel type="topRated" />

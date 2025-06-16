@@ -18,6 +18,12 @@ export const getTopRatedMovies = async () => {
   return data.results;
 };
 
+// fetch upcoming movies
+export const getUpcomingMovies = async () => {
+  const response = await fetch(`${BASE_URL}/movie/upcoming?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.results;
+};
 // fetch trending movies
 export const getTrendingMovies = async () => {
   const response = await fetch(
@@ -49,18 +55,18 @@ export const getUserWatchlist = async () => {
 };
 
 // fetch detailed info for a single movie
-export const getMovieDetails = async(id) => {
+export const getMovieDetails = async (id) => {
   const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
   const data = await response.json();
   return data;
-}
+};
 
 // fetch movie credits
 export const getMovieCredits = async (id) => {
   const res = await fetch(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`);
   const data = await res.json();
   return data;
-}
+};
 
 // fetch trailer videos
 export const getMovieVideos = async (id) => {
@@ -75,5 +81,3 @@ export const getSimilarMovies = async (id) => {
   const data = await res.json();
   return data.results;
 };
-
-
