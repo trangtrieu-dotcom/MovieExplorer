@@ -36,7 +36,7 @@ function MovieDetails() {
 
         // fetch simlar movies
         const similarData = await getSimilarMovies(id);
-        setSimilarMovies(similarData.results);
+        setSimilarMovies(similarData);
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
