@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Star } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Star, Heart, Bookmark } from "lucide-react";
 import TrailerModal from "./TrailerModal";
+import { addToFavorites, addToWatchlist, getUserFavoriteMovies, getUserWatchlistMovies } from "../services/api";
+import { authService } from "../services/auth";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_URL = "https://image.tmdb.org/t/p/original";
@@ -8,11 +10,78 @@ const BACKDROP_URL = "https://image.tmdb.org/t/p/original";
 function MovieHero({ movie, trailerKey }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(false);
+    const [isInWatchlist, setIsInWatchlist] = useState(false);
+    const [loading, setLoading] = useState(false);
     const { title, poster_path, backdrop_path, release_date, vote_average, genres, runtime, original_language, status } = movie;
 
     const year = release_date ? new Date(release_date).getFullYear() : "";
     const genreList = genres.map((g) => g.name).join(", ");
     const rating = vote_average?.toFixed(1);
+
+    useEffect(() => {
+        const checkStatus = async () => {
+            if (!authService.isAuthenticated()) return;
+            
+            try {
+                // Get user's favorites and watchlist
+                const favorites = await getUserFavoriteMovies();
+                const watchlist = await getUserWatchlistMovies();
+                
+                // Check if the current movie is in the user's favorites/watchlist
+                setIsFavorite(favorites.some(fav => fav.id === movie.id));
+                setIsInWatchlist(watchlist.some(watch => watch.id === movie.id));
+            } catch (error) {
+                // If the API fails, just keep buttons as false (not favorite/watchlist)
+                setIsFavorite(false);
+                setIsInWatchlist(false);
+            }
+        };
+        
+        checkStatus();
+    }, [movie.id]);
+
+    // Toggle favorite button
+    const handleFavoriteToggle = async () => {
+        if (!authService.isAuthenticated()) {
+            alert("Please log in to add to favorites");
+            return;
+        }
+        
+        setLoading(true);
+        
+        try {
+            // Try to add to favorites
+            await addToFavorites(movie.id, !isFavorite);
+            // If it's successful, update the state
+            setIsFavorite(!isFavorite);
+        } catch (error) {
+            alert("Failed to update favorites. Please try again.");
+        }
+        
+        setLoading(false);
+    };
+
+    // Toggle watchlist button
+    const handleWatchlistToggle = async () => {
+        if (!authService.isAuthenticated()) {
+            alert("Please log in to add to watchlist");
+            return;
+        }
+        
+        setLoading(true);
+        
+        try {
+            // Try to add to watchlist
+            await addToWatchlist(movie.id, !isInWatchlist);
+            // If it's successful, update the state
+            setIsInWatchlist(!isInWatchlist);
+        } catch (error) {
+            alert("Failed to update watchlist. Please try again.");
+        }
+        
+        setLoading(false);
+    };
 
     return (
         <div className="bg-cover bg-center text-white py-10 px-4"
@@ -34,8 +103,22 @@ function MovieHero({ movie, trailerKey }) {
                             <p className="text-sm text-gray-400">User Rating</p>
                             <p className="flex items-center text-yellow-400 font-bold"><Star className="mr-1" size={18}/>  {rating}/10</p>
                         </div>
-                        <button className="btn btn-sm btn-primary">Watchlist</button>
-                        <button className="btn btn-sm btn-secondary">Favorites</button>
+                        <button 
+                            className={`btn btn-sm ${isInWatchlist ? 'btn-warning' : 'btn-primary'}`}
+                            onClick={handleWatchlistToggle}
+                            disabled={loading}
+                        >
+                            <Bookmark size={16} />
+                            {isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
+                        </button>
+                        <button 
+                            className={`btn btn-sm ${isFavorite ? 'btn-error' : 'btn-secondary'}`}
+                            onClick={handleFavoriteToggle}
+                            disabled={loading}
+                        >
+                            <Heart size={16} />
+                            {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+                        </button>
                     </div>
                 </div>
 
