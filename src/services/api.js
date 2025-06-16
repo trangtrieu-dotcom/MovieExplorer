@@ -47,3 +47,33 @@ export const getUserWatchlist = async () => {
   // In a real app, this would be user-specific. For now, use trending movies as a placeholder.
   return getTrendingMovies();
 };
+
+// fetch detailed info for a single movie
+export const getMovieDetails = async(id) => {
+  const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data;
+}
+
+// fetch movie credits
+export const getMovieCredits = async (id) => {
+  const res = await fetch(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+}
+
+// fetch trailer videos
+export const getMovieVideos = async (id) => {
+  const res = await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
+//fetch similar movies
+export const getSimilarMovies = async (id) => {
+  const res = await fetch(`${BASE_URL}/movie/${id}/similar?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};
+
+
