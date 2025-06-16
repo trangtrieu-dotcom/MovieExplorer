@@ -3,7 +3,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/NavBar";
 import MovieDetails from "./pages/MovieDetails";
-import FavoriteWatchlistRecommendations from "./pages/Favorite_Watchlist_Recommendations";
+import Favorite from "./pages/Favorite";
 import Login from "./pages/Login";
 import Footer from "./components/layout/Footer";
 
@@ -19,7 +19,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route
                 path="/favorites-watchlist-recommendations"
-                element={<FavoriteWatchlistRecommendations />}
+                element={<Favorite />}
               />
               <Route path="/movie/:id" element={<MovieDetails />} />
             </Routes>
@@ -32,3 +32,4 @@ function App() {
 }
 
 export default App;
+

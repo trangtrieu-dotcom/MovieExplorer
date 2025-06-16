@@ -42,18 +42,6 @@ export const getRecommendationsByGenre = async (genreId) => {
   return data.results;
 };
 
-// fetch user favorites (simulate with popular for now)
-export const getUserFavorites = async () => {
-  // In a real app, this would be user-specific. For now, use popular movies as a placeholder.
-  return getPopularMovies();
-};
-
-// fetch user watchlist (simulate with trending for now)
-export const getUserWatchlist = async () => {
-  // In a real app, this would be user-specific. For now, use trending movies as a placeholder.
-  return getTrendingMovies();
-};
-
 // fetch detailed info for a single movie
 export const getMovieDetails = async (id) => {
   const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
@@ -81,3 +69,78 @@ export const getSimilarMovies = async (id) => {
   const data = await res.json();
   return data.results;
 };
+
+
+// GET the customer's account ID
+export const getAccountId = async () => {
+  const sessionId = localStorage.getItem('session_id');
+  if (!sessionId) {
+    throw new Error('No session found');
+  }
+  
+  const response = await fetch(`${BASE_URL}/account?api_key=${API_KEY}&session_id=${sessionId}`);
+  const data = await response.json();
+  return data.id;
+};
+
+// Add to favorites POST request
+export const addToFavorites = async (movieId, favorite = true) => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+  
+  const response = await fetch(`${BASE_URL}/account/${accountId}/favorite?api_key=${API_KEY}&session_id=${sessionId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      media_type: 'movie',
+      media_id: movieId,
+      favorite: favorite
+    })
+  });
+  
+  return await response.json();
+};
+
+// Add to watchlist POST request
+export const addToWatchlist = async (movieId, watchlist = true) => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+  
+  const response = await fetch(`${BASE_URL}/account/${accountId}/watchlist?api_key=${API_KEY}&session_id=${sessionId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      media_type: 'movie',
+      media_id: movieId,
+      watchlist: watchlist
+    })
+  });
+  
+  return await response.json();
+};
+
+// Get user's favorite movies GET request
+export const getUserFavoriteMovies = async () => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+  
+  const response = await fetch(`${BASE_URL}/account/${accountId}/favorite/movies?api_key=${API_KEY}&session_id=${sessionId}`);
+  const data = await response.json();
+  return data.results;
+};
+
+// Get user's watchlist movies GET request
+export const getUserWatchlistMovies = async () => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+  
+  const response = await fetch(`${BASE_URL}/account/${accountId}/watchlist/movies?api_key=${API_KEY}&session_id=${sessionId}`);
+  const data = await response.json();
+  return data.results;
+};
+
+
