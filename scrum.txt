@@ -78,3 +78,35 @@ what did you do yesterday : created Login.jsx, auth.js in services for all the p
 what are you going to do today: Finish up the login features (with redirecting + login with username and password)
 this can take up to 2 days until i make it work. After this, I can continue on my watchlist and favorite list.
 any block/help from the team: No help, but I need to figure out the login redirecting since the login with juste the username and password is already implemented.
+
+
+=======================================
+JUNE 15, 2025
+
+** Shao Hang
+what did you do yesterday : Finish up the login.jsx, removed the redirecting part so we only have 1 login method. If I have time, I will try to figure out.
+what are you going to do today: Working on favorite and watchlist
+any block/help from the team: not yet
+
+** Trang
+what I did: refactor home page, add movie carousel + footer
+what I’m gonna do: add upcoming movie trailer
+Help/need help: not yet
+
+==========================================
+JUNE 16, 2025
+
+** Louis
+what I did: Some minor changes, was busy yesterday.
+what i'm gonna do: Make the watchlist and favorite buttons work and create those pages
+help/need help:N/A
+
+** Shao Hang
+what I did: Created TrailerModal, linked moviecards to movie details
+what I’m going to do: Edit CastSection & CastCard, get Watchlist and Favorites btns to work in MovieDetails
+Help/need help: not yet
+
+** Trang
+what I did: working on movie trailer
+what i'm gonna do: finish movie trailer + search bar
+help/need help: idea of search bar

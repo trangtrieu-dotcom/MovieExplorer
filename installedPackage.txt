@@ -34,3 +34,4 @@ npm install daisyui@3.4.0
 
  REACT SLICK (for carousel)
 npm install slick-carousel --save
+npm install react-slick --save
