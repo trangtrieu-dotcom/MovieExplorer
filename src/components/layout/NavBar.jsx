@@ -12,6 +12,7 @@ export default function Navbar() {
   };
 
   return (
+    // navbar template from DaisyUI
     <div className="navbar bg-base-300 shadow-sm">
       {/* dropdown for responsive screen */}
       <div className="navbar-start">
