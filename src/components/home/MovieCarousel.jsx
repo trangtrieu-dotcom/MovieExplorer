@@ -4,67 +4,72 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import MovieCard from "../MovieCard.jsx";
-import { getPopularMovies, getTopRatedMovies } from "../../services/api";
+import { getPopularMovies, getTopRatedMovies, getUserFavoriteMovies, getUserWatchlistMovies } from "../../services/api";
 
-function MovieCarousel({ type, title }) {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState([]);
-
+function MovieCarousel({ type, title, fetchMovie, initialMovies }) {
+  const [movies, setMovies] = useState(initialMovies || []);
+  const [loading, setLoading] = useState(!initialMovies);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // fetch designed API from
+    if (initialMovies) {
+      setMovies(initialMovies);
+      setLoading(false);
+      return;
+    }
+
+    // fetch movies
     const loadMovies = async () => {
       const movieType = {
         popular: getPopularMovies,
         topRated: getTopRatedMovies,
+        favorites: getUserFavoriteMovies,
+        watchlist: getUserWatchlistMovies,
       }
 
-      try {
-        const fetchFunction = movieType[type];
-        if (!fetchFunction) {
-          throw new Error(`Unknown movie type: ${type}`);
-        }
-        const results = await fetchFunction();
-        setMovies(results);
-      } catch (error) {
-        setError(`Failed to load ${type} movies`, error);
-        console.error(`Failed to load ${type} movies: ${error.message}`);
-      }  finally {
+      const fetchFunction = fetchMovie || movieType[type];
+      if (!fetchFunction) {
+        setError(`Unknown movie type: ${type}`);
         setLoading(false);
+        return;
       }
+
+      const results = await fetchFunction();
+      setMovies(results || []);
+      setLoading(false);
     };
+    
     loadMovies();
-  }, [type]);
+  }, [type, fetchMovie, initialMovies]);
 
   // responsive carousel setup from react-slick tailwind library
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: movies.length >= 8,
     speed: 500,
-    arrows: true,
-    slidesToShow: 8,
+    arrows: movies.length > 8,
+    slidesToShow: Math.min(8, movies.length || 1),
     slidesToScroll: 4,
     swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: Math.min(6, movies.length || 1),
           slidesToScroll: 3
         }
       },
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: Math.min(5, movies.length || 1),
           slidesToScroll: 3
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: Math.min(4, movies.length || 1),
           slidesToScroll: 2
         }
       },
@@ -99,15 +104,17 @@ function MovieCarousel({ type, title }) {
   };
 
   if (loading) return <div className="text-white px-4 py-2">Loading...</div>;
+  if (error) return <div className="text-red-500 px-4 py-2">{error}</div>;
+  if (!movies || movies.length === 0) return <div className="text-gray-400 px-4 py-2">No movies found.</div>;
 
   // https://react-slick.neostack.com/docs/example/responsive
   return (
     <div className="w-full px-4">
       {title && <h2 className="text-xl font-semibold mb-4 text-white">{title}</h2>}
       <Slider {...settings}>
-        {/* IMPORTANT: maps over `movies` array, renders a MovieCard for each `movie` */}
+         {/* IMPORTANT: maps over `movies` array, renders a MovieCard for each `movie` */}
         {movies.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
+          <MovieCard movie={movie} key={movie.id} />
         ))}
       </Slider>
     </div>
