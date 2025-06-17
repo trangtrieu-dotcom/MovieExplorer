@@ -6,6 +6,7 @@ import MovieDetails from "./pages/MovieDetails";
 import Favorite from "./pages/Favorite";
 import Login from "./pages/Login";
 import Footer from "./components/layout/Footer";
+import TVDetails from "./pages/TVDetails";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                 element={<Favorite />}
               />
               <Route path="/movie/:id" element={<MovieDetails />} />
+              <Route path="/tv/:id" element={<TVDetails />} />
             </Routes>
           </main>
           <Footer />

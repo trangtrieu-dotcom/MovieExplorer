@@ -49,6 +49,8 @@ export const getMovieDetails = async (id) => {
   return data;
 };
 
+// MOVIES
+
 // fetch movie credits
 export const getMovieCredits = async (id) => {
   const res = await fetch(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`);
@@ -63,9 +65,36 @@ export const getMovieVideos = async (id) => {
   return data;
 };
 
-//fetch similar movies
+// fetch similar movies
 export const getSimilarMovies = async (id) => {
   const res = await fetch(`${BASE_URL}/movie/${id}/similar?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+};
+
+// TV SHOWS
+
+// fetch show details 
+export const getTVDetails = async (id) => {
+  const res = await fetch(`${BASE_URL}/tv/${id}?api_key=${API_KEY}`);
+  return await res.json();
+};
+
+// fetch show credits
+export const getTVCredits = async (id) => {
+  const res = await fetch(`${BASE_URL}/tv/${id}/credits?api_key=${API_KEY}`);
+  return await res.json();
+};
+
+// fetch show videos
+export const getTVVideos = async (id) => {
+  const res = await fetch(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}`);
+  return await res.json();
+};
+
+// fetch similar shows
+export const getSimilarTVShows = async (id) => {
+  const res = await fetch(`${BASE_URL}/tv/${id}/similar?api_key=${API_KEY}`);
   const data = await res.json();
   return data.results;
 };
@@ -84,7 +113,7 @@ export const getAccountId = async () => {
 };
 
 // Add to favorites POST request
-export const addToFavorites = async (movieId, favorite = true) => {
+export const addToFavorites = async (movieId, favorite = true, mediaType = 'movie') => {
   const sessionId = localStorage.getItem('session_id');
   const accountId = await getAccountId();
   
@@ -94,7 +123,7 @@ export const addToFavorites = async (movieId, favorite = true) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      media_type: 'movie',
+      media_type: mediaType,
       media_id: movieId,
       favorite: favorite
     })
@@ -104,7 +133,7 @@ export const addToFavorites = async (movieId, favorite = true) => {
 };
 
 // Add to watchlist POST request
-export const addToWatchlist = async (movieId, watchlist = true) => {
+export const addToWatchlist = async (movieId, watchlist = true, mediaType = 'movie') => {
   const sessionId = localStorage.getItem('session_id');
   const accountId = await getAccountId();
   
@@ -114,7 +143,7 @@ export const addToWatchlist = async (movieId, watchlist = true) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      media_type: 'movie',
+      media_type: mediaType,
       media_id: movieId,
       watchlist: watchlist
     })
@@ -143,4 +172,23 @@ export const getUserWatchlistMovies = async () => {
   return data.results;
 };
 
+// Get user's favorite TV shows
+export const getUserFavoriteTVShows = async () => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+
+  const response = await fetch(`${BASE_URL}/account/${accountId}/favorite/tv?api_key=${API_KEY}&session_id=${sessionId}`);
+  const data = await response.json();
+  return data.results;
+};
+
+// Get user's watchlist TV shows
+export const getUserWatchlistTVShows = async () => {
+  const sessionId = localStorage.getItem('session_id');
+  const accountId = await getAccountId();
+
+  const response = await fetch(`${BASE_URL}/account/${accountId}/watchlist/tv?api_key=${API_KEY}&session_id=${sessionId}`);
+  const data = await response.json();
+  return data.results;
+};
 
