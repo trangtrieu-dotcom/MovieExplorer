@@ -19,6 +19,12 @@ const Favorite = () => {
 
                 <h2 className="text-xl font-semibold text-white mt-12 mb-6">Your Watchlist</h2>
                 <MovieCarousel type="watchlist" />
+
+                <h2 className="text-xl font-semibold text-white mt-12 mb-6">Your Favorite TV Shows</h2>
+                <MovieCarousel type="favoritesTv" />
+
+                <h2 className="text-xl font-semibold text-white mt-12 mb-6">Your TV Show Watchlist</h2>
+                <MovieCarousel type="watchlistTv" />
             </div>
         </div>
     );

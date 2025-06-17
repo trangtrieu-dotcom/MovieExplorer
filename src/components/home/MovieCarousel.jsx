@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import MovieCard from "../MovieCard.jsx";
-import { getPopularMovies, getTopRatedMovies, getUserFavoriteMovies, getUserWatchlistMovies } from "../../services/api";
+import { getPopularMovies, getTopRatedMovies, getUserFavoriteMovies, getUserWatchlistMovies, getUserFavoriteTVShows, getUserWatchlistTVShows} from "../../services/api";
 
 function MovieCarousel({ type, title, fetchMovie, initialMovies }) {
   const [movies, setMovies] = useState(initialMovies || []);
@@ -25,6 +25,8 @@ function MovieCarousel({ type, title, fetchMovie, initialMovies }) {
         topRated: getTopRatedMovies,
         favorites: getUserFavoriteMovies,
         watchlist: getUserWatchlistMovies,
+        favoritesTv: getUserFavoriteTVShows,
+        watchlistTv: getUserWatchlistTVShows,
       }
 
       const fetchFunction = fetchMovie || movieType[type];
