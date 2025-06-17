@@ -34,53 +34,62 @@ function FavoriteCarousel({ type }) {
     loadMovies();
   }, [type]);
 
-  // carousel settings - matching MovieCarousel for consistent spacing
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: movies.length >= 8, 
     speed: 500,
-    arrows: true,
-    slidesToShow: 8,
-    slidesToScroll: 4,
+    arrows: movies.length > 8, // Only show arrows if we have more movies than can fit
+    slidesToShow: Math.min(8, movies.length || 1), 
+    slidesToScroll: Math.min(4, movies.length || 1),
     swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 6,
-          slidesToScroll: 3
+          slidesToShow: Math.min(6, movies.length || 1),
+          slidesToScroll: Math.min(3, movies.length || 1),
+          arrows: movies.length > 6,
+          infinite: movies.length >= 6
         }
       },
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 3
+          slidesToShow: Math.min(5, movies.length || 1),
+          slidesToScroll: Math.min(3, movies.length || 1),
+          arrows: movies.length > 5,
+          infinite: movies.length >= 5
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 2
+          slidesToShow: Math.min(4, movies.length || 1),
+          slidesToScroll: Math.min(2, movies.length || 1),
+          arrows: movies.length > 4,
+          infinite: movies.length >= 4
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2.5,
-          slidesToScroll: 2,
-          centerMode: true,
-          centerPadding: "20px"
+          slidesToShow: Math.min(3, movies.length || 1),
+          slidesToScroll: Math.min(2, movies.length || 1),
+          arrows: movies.length > 3,
+          infinite: movies.length >= 3,
+          centerMode: false,
+          centerPadding: "0px"
         }
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: Math.min(2, movies.length || 1),
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "20px"
+          arrows: movies.length > 2,
+          infinite: movies.length >= 2,
+          centerMode: false,
+          centerPadding: "0px"
         }
       },
       {
@@ -88,8 +97,10 @@ function FavoriteCarousel({ type }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "16px"
+          arrows: movies.length > 1,
+          infinite: movies.length >= 2,
+          centerMode: false,
+          centerPadding: "0px"
         }
       }
     ]
@@ -99,7 +110,6 @@ function FavoriteCarousel({ type }) {
   if (error) return <div className="text-red-500 px-4 py-2">{error}</div>;
   if (!movies || movies.length === 0) return <div className="text-gray-400 px-4 py-2">No movies found.</div>;
 
-  // Always use carousel for consistent layout
   return (
     <div className="w-full px-4">
       <Slider {...settings}>
