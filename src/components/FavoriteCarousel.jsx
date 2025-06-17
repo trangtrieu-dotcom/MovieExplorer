@@ -34,42 +34,42 @@ function FavoriteCarousel({ type }) {
     loadMovies();
   }, [type]);
 
-  // carousel settings - adapted for fewer movies
+  // carousel settings - matching MovieCarousel for consistent spacing
   const settings = {
     dots: false,
-    infinite: movies.length >= 4,
+    infinite: true,
     speed: 500,
     arrows: true,
-    slidesToShow: Math.min(8, movies.length || 1),
-    slidesToScroll: Math.min(4, movies.length || 1),
+    slidesToShow: 8,
+    slidesToScroll: 4,
     swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: Math.min(6, movies.length || 1),
-          slidesToScroll: Math.min(3, movies.length || 1)
+          slidesToShow: 6,
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: Math.min(5, movies.length || 1),
-          slidesToScroll: Math.min(3, movies.length || 1)
+          slidesToShow: 5,
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: Math.min(4, movies.length || 1),
-          slidesToScroll: Math.min(2, movies.length || 1)
+          slidesToShow: 4,
+          slidesToScroll: 2
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: Math.min(2.5, movies.length || 1),
-          slidesToScroll: Math.min(2, movies.length || 1),
+          slidesToShow: 2.5,
+          slidesToScroll: 2,
           centerMode: true,
           centerPadding: "20px"
         }
@@ -77,7 +77,7 @@ function FavoriteCarousel({ type }) {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: Math.min(1.5, movies.length || 1),
+          slidesToShow: 1.5,
           slidesToScroll: 1,
           centerMode: true,
           centerPadding: "20px"
@@ -99,19 +99,7 @@ function FavoriteCarousel({ type }) {
   if (error) return <div className="text-red-500 px-4 py-2">{error}</div>;
   if (!movies || movies.length === 0) return <div className="text-gray-400 px-4 py-2">No movies found.</div>;
 
-  // For very few movies, use flex layout instead of carousel
-  if (movies.length <= 4) {
-    return (
-      <div className="w-full px-4">
-        <div className="flex gap-4">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
+  // Always use carousel for consistent layout
   return (
     <div className="w-full px-4">
       <Slider {...settings}>
