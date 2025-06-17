@@ -32,7 +32,7 @@ function MovieHero({ movie, trailerKey }) {
                     <div className="flex gap-4 items-center">
                         <div>
                             <p className="text-sm text-gray-400">User Rating</p>
-                            <p className="flex items-center text-yellow-400 font-bold"><Star className="mr-1" size={18}/>  {rating}/10</p>
+                            <p className="flex items-center text-yellow-400 font-bold"><Star className="fill-yellow-400 mr-1" size={18}/>  {rating}/10</p>
                         </div>
                         <button className="btn btn-sm btn-primary">Watchlist</button>
                         <button className="btn btn-sm btn-secondary">Favorites</button>
