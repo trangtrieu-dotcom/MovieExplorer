@@ -7,6 +7,7 @@ import Favorite from "./pages/Favorite";
 import Login from "./pages/Login";
 import Footer from "./components/layout/Footer";
 import TVDetails from "./pages/TVDetails";
+import SearchResult from "./pages/SearchResult";
 
 function App() {
   return (
@@ -18,12 +19,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route
-                path="/favorites-watchlist"
-                element={<Favorite />}
-              />
+              <Route path="/favorites-watchlist" element={<Favorite />} />
               <Route path="/movie/:id" element={<MovieDetails />} />
               <Route path="/tv/:id" element={<TVDetails />} />
+              <Route path="/search" element={<SearchResult />} />
             </Routes>
           </main>
           <Footer />
@@ -34,4 +33,3 @@ function App() {
 }
 
 export default App;
-

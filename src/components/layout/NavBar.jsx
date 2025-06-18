@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useAuth();
@@ -16,9 +17,9 @@ export default function Navbar() {
     <div className="navbar bg-base-300 shadow-sm">
       {/* dropdown for responsive screen */}
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+            <Menu />
           </div>
           <ul
             tabIndex={0}
@@ -41,8 +42,8 @@ export default function Navbar() {
         </Link>
       </div>
       {/* navbar for desktop */}
-      <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-mid hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 whitespace-nowrap flex-nowrap">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/movies">Movies</Link></li>
           <li><Link to="/tv">TV Shows</Link></li>

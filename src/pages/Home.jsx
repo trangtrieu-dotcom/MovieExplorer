@@ -10,7 +10,7 @@ function Home() {
         <h2 className="text-xl font-semibold text-white mt-12 mb-6">Popular</h2>
         <MovieCarousel type="popular" />
 
-        <h2 className="text-xl font-semibold text-white mt-12 mb-6">Upcoming</h2>
+        <h2 className="text-xl font-semibold text-white mt-12 mb-6">Coming Soon</h2>
         <UpcomingMovies />
 
         <h2 className="text-xl font-semibold text-white mt-12 mb-6">Top Rated</h2>
