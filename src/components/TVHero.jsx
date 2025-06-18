@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Star, Heart, Bookmark } from "lucide-react";
+import { Star, Heart, Bookmark, Film } from "lucide-react";
 import TrailerModal from "./TrailerModal";
 import { addToFavorites, addToWatchlist } from "../services/api";
 import { authService } from "../services/auth";
@@ -126,7 +126,15 @@ function TVHero({ tv, trailerKey }) {
 
                 <div className="flex justify-center">
                     <div className="flex flex-col lg:flex-row items-start">
-                        <img src={IMG_URL + poster_path} alt={name} className="w-48 md:w-60 h-[360px] object-cover rounded-lg shadow"/>
+                        {poster_path ? (
+                            <img src={IMG_URL + poster_path} alt={name} className="w-48 md:w-60 h-[360px] object-cover rounded-lg shadow"/> 
+                            ):(
+                            <div className="w-48 md:w-60 h-[360px] flex items-center justify-center bg-gray-800 text-gray-400 rounded-lg shadow">
+                                <Film />
+                            </div>
+                            )
+                        }
+                        
                     </div>
                         
                         {trailerKey ? (
