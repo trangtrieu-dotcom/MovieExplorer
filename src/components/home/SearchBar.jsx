@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -30,8 +32,12 @@ function SearchBar() {
       <div className="absolute inset-0 bg-base-200/40 z-0" />
       <div className="w-full max-w-3xl relative z-10">
         {/* title and subtitle */}
-        <h1 className="text-2xl font-bold text-white mb-1">Welcome.</h1>
-        <p className="text-base text-gray-200 mb-4">Millions of movies, TV shows, and people to discover. Explore now.</p>
+        <h1 className={`text-2xl font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+          Welcome.
+        </h1>
+        <p className={`text-base mb-4 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
+          Millions of movies, TV shows, and people to discover. Explore now.
+        </p>
         {/* searchbar */}
         <form onSubmit={handleSearch} className="flex w-full relative">
           <input
