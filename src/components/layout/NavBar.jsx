@@ -28,7 +28,7 @@ export default function Navbar() {
             <li><Link to="/tv">TV Shows</Link></li>
             <li><Link to="/people">People</Link></li>
             {isAuthenticated && (
-              <li><Link to="/favorites-watchlist-recommendations">Favorites/Watchlist/Recommendations</Link></li>
+              <li><Link to="/favorites-watchlist">Favorites/Watchlist</Link></li>
             )}
           </ul>
         </div>
@@ -48,7 +48,7 @@ export default function Navbar() {
           <li><Link to="/tv">TV Shows</Link></li>
           <li><Link to="/people">People</Link></li>
           {isAuthenticated && (
-            <li><Link to="/favorites-watchlist-recommendations">Favorites/Watchlist</Link></li>
+            <li><Link to="/favorites-watchlist">Favorites/Watchlist</Link></li>
           )}
         </ul>
       </div>
@@ -68,7 +68,7 @@ export default function Navbar() {
               <li className="menu-title">
                 <span>{user?.username || user?.name || 'User'}</span>
               </li>
-              <li><Link to="/favorites-watchlist-recommendations">My Lists</Link></li>
+              <li><Link to="/favorites-watchlist">My Lists</Link></li>
               <li><button onClick={handleLogout}>Logout</button></li>
             </ul>
           </div>
