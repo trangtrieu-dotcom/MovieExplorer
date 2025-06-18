@@ -19,7 +19,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route
-                path="/favorites-watchlist-recommendations"
+                path="/favorites-watchlist"
                 element={<Favorite />}
               />
               <Route path="/movie/:id" element={<MovieDetails />} />
