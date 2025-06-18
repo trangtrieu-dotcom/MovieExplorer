@@ -29,11 +29,11 @@ export default function TrailerModal ({isOpen, onClose, trailerKey, title, tagli
 
                 {/* movie info section below video (upcoming movies) */}
                 <div className="bg-base-200 px-6 py-5">
-                    {title && <div className="text-lg font-bold text-white mb-1">{title}</div>}
-                    {tagline && <div className="text-base text-gray-200 mb-2">{tagline}</div>}
-                    {overview && <div className="text-sm text-gray-300 mb-2">{overview}</div>}
+                    {title && <div className="text-lg font-bold mb-1">{title}</div>}
+                    {tagline && <div className="text-base mb-2">{tagline}</div>}
+                    {overview && <div className="text-sm mb-2">{overview}</div>}
                     {releaseDate && (
-                        <div className="text-xs text-gray-400 mt-2">
+                        <div className="text-xs mt-2">
                             Release Date: {releaseDate ? new Date(releaseDate).toLocaleDateString() : "Unknown release date"}
                         </div>
                     )}
