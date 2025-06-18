@@ -100,13 +100,13 @@ export default function UpComingMovies() {
 
               {/* trailer info */}
               <div className="p-3">
-                <div className="font-bold text-white leading-tight truncate">
+                <div className="font-bold leading-tight truncate">
                   {trailer.title}
                 </div>
-                <div className="text-xs text-gray-300 truncate">
+                <div className="text-xs truncate">
                   {trailer.trailerName}
                 </div>
-                <div className="text-xs text-gray-400 mt-1">
+                <div className="text-xs mt-1">
                   {trailer.releaseDate ? new Date(trailer.releaseDate).toLocaleDateString() : "Unknown release date"}
                 </div>
               </div>

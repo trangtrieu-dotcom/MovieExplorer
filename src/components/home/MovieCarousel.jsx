@@ -105,14 +105,14 @@ function MovieCarousel({ type, title, fetchMovie, initialMovies }) {
     ]
   };
 
-  if (loading) return <div className="text-white px-4 py-2">Loading...</div>;
+  if (loading) return <div className=" px-4 py-2">Loading...</div>;
   if (error) return <div className="text-red-500 px-4 py-2">{error}</div>;
-  if (!movies || movies.length === 0) return <div className="text-gray-400 px-4 py-2">No movies found.</div>;
+  if (!movies || movies.length === 0) return <div className=" px-4 py-2">No movies found.</div>;
 
   // https://react-slick.neostack.com/docs/example/responsive
   return (
     <div className="w-full px-4">
-      {title && <h2 className="text-xl font-semibold mb-4 text-white">{title}</h2>}
+      {title && <h2 className="text-xl font-semibold mb-4 ">{title}</h2>}
       <Slider {...settings}>
          {/* IMPORTANT: maps over `movies` array, renders a MovieCard for each `movie` */}
         {movies.map((movie) => (

@@ -110,3 +110,22 @@ Help/need help: not yet
 what I did: working on movie trailer
 what i'm gonna do: finish movie trailer + search bar
 help/need help: idea of search bar
+
+=============================================
+JUNE 17, 2025
+
+**Louis
+what I did: Created the TV Show details page, added way to save shows to favorites and watchlist
+what I'm going do: Work on the presentation
+help/need help: not yet
+
+**Shao Hang
+what i did: Refactored the code and changed the path 
+what im gonna do: Add icons to remove instead of going to the movie page to remove. and change alert to modal
+instead
+help/need help: not yet
+
+**Trang
+what I did: add search result page
+what im gonna do: add light/dark theme toggle
+help/need help: tomorrow with presentation at 10am

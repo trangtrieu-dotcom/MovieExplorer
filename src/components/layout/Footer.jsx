@@ -13,8 +13,8 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* project info */}
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-semibold mb-3 text-white">Movie Explorer</h3>
-            <p className="text-sm text-gray-400">
+            <h3 className="text-lg font-semibold mb-3">Movie Explorer</h3>
+            <p className="text-sm ">
               A modern movie discovery platform created by Team 4.
             </p>
             <a 
@@ -34,15 +34,15 @@ function Footer() {
 
           {/* quick links */}
           <div className="text-center">
-            <h3 className="text-lg text-white font-semibold mb-3">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
             <div className="space-y-2">
-              <Link to="/movies" className="block text-sm text-gray-400 hover:text-primary transition-colors">
+              <Link to="/movies" className="block text-sm  hover:text-primary transition-colors">
                 Movies
               </Link>
-              <Link to="/tv" className="block text-sm text-gray-400 hover:text-primary transition-colors">
+              <Link to="/tv" className="block text-sm  hover:text-primary transition-colors">
                 TV Shows
               </Link>
-              <Link to="/people" className="block text-sm text-gray-400 hover:text-primary transition-colors">
+              <Link to="/people" className="block text-sm  hover:text-primary transition-colors">
                 People
               </Link>
             </div>
@@ -50,8 +50,8 @@ function Footer() {
 
           {/* about */}
           <div className="text-center md:text-right">
-            <h3 className="text-lg font-semibold mb-3 text-white">About</h3>
-            <p className="text-sm text-gray-400">
+            <h3 className="text-lg font-semibold mb-3">About</h3>
+            <p className="text-sm ">
               This website is created as the final project for Web Development II course.
             </p>
             <a 
@@ -61,7 +61,7 @@ function Footer() {
               className="inline-block mt-4 text-sm text-accent hover:text-primary-focus transition-colors"
             >
               View on GitHub
-              <Github className="h-6 w-6 inline-block ml-2 text-gray-400" />
+              <Github className="h-6 w-6 inline-block ml-2 " />
             </a>
           </div>
         </div>
@@ -71,7 +71,7 @@ function Footer() {
 
         {/* copyright */}
         <div className="text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm">
             © {currentYear} Movie Explorer. All rights reserved.
           </p>
         </div>

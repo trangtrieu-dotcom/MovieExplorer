@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useTheme } from "../../context/ThemeContext";
 import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   // logout action, when we click logout, it will logout and navigate to home
@@ -54,8 +56,19 @@ export default function Navbar() {
         </ul>
       </div>
       
-      {/* Authentication section */}
+      {/* theme toggle and authentication section */}
       <div className="navbar-end">
+        {/* theme toggle */}
+        <div className="flex items-center mr-4">
+          <input
+            type="checkbox"
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+            className="toggle neutral border-gray-600 checked:neutral checked:border-gray-100"
+          />
+        </div>
+        
+        {/* authentication */}
         {isAuthenticated ? (
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

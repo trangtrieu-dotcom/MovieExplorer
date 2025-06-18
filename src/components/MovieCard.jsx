@@ -35,11 +35,11 @@ const MovieCard = ({ movie }) => {
               Rating: {movie.vote_average?.toFixed(1)}/10
             </div>
           {/* title */}
-          <h2 className="card-title text-white text-sm line-clamp-2 min-h-[2.5rem]">
+          <h2 className="card-title text-sm line-clamp-2 min-h-[2.5rem]">
             {title}
           </h2>
           {/* release date */}
-          <p className="text-gray-400 text-xs">
+          <p className=" text-xs">
             {releaseDate ? new Date(movie.release_date).toLocaleDateString() : "Unknown release date"}
           </p>
         </div>
