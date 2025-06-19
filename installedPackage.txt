@@ -41,3 +41,8 @@ npm install react-slick --save
 
 VERCEL
 https://team4-movie-explorer.vercel.app/
+
+========================================
+
+POWERPOINT
+https://johnabbott-my.sharepoint.com/:p:/g/personal/6341464_johnabbottcollege_net/Efl4G8zA4sJFgSGCcShXPKwBLNaU-7R8leSUNMAWPWJKKA?e=ZhYfFE
