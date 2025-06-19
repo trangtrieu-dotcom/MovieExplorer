@@ -38,6 +38,7 @@ function SearchBar() {
         {/* title and subtitle */}
         <h1 className={`text-2xl font-bold mb-1 ${theme === 'light' ? 'text-black' : 'text-white'}`}>Welcome.</h1>
         <p className={`text-base mb-4 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+
           Millions of movies, TV shows, and people to discover. Explore now.
         </p>
         

@@ -129,3 +129,8 @@ help/need help: not yet
 what I did: add search result page
 what im gonna do: add light/dark theme toggle
 help/need help: tomorrow with presentation at 10am
+
+==================================================
+JUNE 18, 2025
+
+**Team: deploy website to cloud + do presentation

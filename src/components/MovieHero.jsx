@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Star, Heart, Bookmark } from "lucide-react";
+import { Star, Heart, Bookmark, Film} from "lucide-react";
 import TrailerModal from "./TrailerModal";
+import AlertModal from "./AlertModal";
 import { addToFavorites, addToWatchlist, getUserFavoriteMovies, getUserWatchlistMovies } from "../services/api";
 import { authService } from "../services/auth";
 
@@ -13,6 +14,13 @@ function MovieHero({ movie, trailerKey }) {
     const [isFavorite, setIsFavorite] = useState(false);
     const [isInWatchlist, setIsInWatchlist] = useState(false);
     const [loading, setLoading] = useState(false);
+    
+    // alert modal state
+    const [alertModal, setAlertModal] = useState({
+        isOpen: false,
+        message: ""
+    });
+
     const { title, poster_path, backdrop_path, release_date, vote_average, genres, runtime, original_language, status } = movie;
 
     const year = release_date ? new Date(release_date).getFullYear() : "";
@@ -41,10 +49,24 @@ function MovieHero({ movie, trailerKey }) {
         checkStatus();
     }, [movie.id]);
 
+    const showAlert = (message) => {
+        setAlertModal({
+            isOpen: true,
+            message: message
+        });
+    };
+
+    const closeAlert = () => {
+        setAlertModal({
+            isOpen: false,
+            message: ""
+        });
+    };
+
     // Toggle favorite button
     const handleFavoriteToggle = async () => {
         if (!authService.isAuthenticated()) {
-            alert("Please log in to add to favorites");
+            showAlert("Please log in to add to favorites");
             return;
         }
         
@@ -56,7 +78,7 @@ function MovieHero({ movie, trailerKey }) {
             // If it's successful, update the state
             setIsFavorite(!isFavorite);
         } catch (error) {
-            alert("Failed to update favorites. Please try again.");
+            showAlert("Failed to update favorites. Please try again.");
         }
         
         setLoading(false);
@@ -65,7 +87,7 @@ function MovieHero({ movie, trailerKey }) {
     // Toggle watchlist button
     const handleWatchlistToggle = async () => {
         if (!authService.isAuthenticated()) {
-            alert("Please log in to add to watchlist");
+            showAlert("Please log in to add to watchlist");
             return;
         }
         
@@ -77,7 +99,7 @@ function MovieHero({ movie, trailerKey }) {
             // If it's successful, update the state
             setIsInWatchlist(!isInWatchlist);
         } catch (error) {
-            alert("Failed to update watchlist. Please try again.");
+            showAlert("Failed to update watchlist. Please try again.");
         }
         
         setLoading(false);
@@ -124,7 +146,14 @@ function MovieHero({ movie, trailerKey }) {
 
                 <div className="flex justify-center">
                     <div className="flex flex-col lg:flex-row items-start">
-                        <img src={IMG_URL + poster_path} alt={title} className="w-48 md:w-60 h-[360px] object-cover rounded-lg shadow"/>
+                        {poster_path ? (
+                            <img src={IMG_URL + poster_path} alt={title} className="w-48 md:w-60 h-[360px] object-cover rounded-lg shadow"/> 
+                            ):(
+                            <div className="w-48 md:w-60 h-[360px] flex items-center justify-center bg-gray-800 text-gray-400 rounded-lg shadow">
+                                <Film />
+                            </div>
+                            )
+                        }
                     </div>
                         
                         {trailerKey ? (
@@ -161,6 +190,12 @@ function MovieHero({ movie, trailerKey }) {
                     isOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                     trailerKey={trailerKey}
+                />
+
+                <AlertModal
+                    isOpen={alertModal.isOpen}
+                    onClose={closeAlert}
+                    message={alertModal.message}
                 />
             </div>
         </div>
