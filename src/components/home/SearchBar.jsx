@@ -35,8 +35,8 @@ function SearchBar() {
       
       <div className="w-full max-w-3xl relative z-10">
         {/* title and subtitle */}
-        <h1 className="text-2xl font-bold text-white mb-1">Welcome.</h1>
-        <p className="text-base text-gray-200 mb-4">
+        <h1 className="text-2xl font-bold mb-1">Welcome.</h1>
+        <p className="text-base mb-4">
           Millions of movies, TV shows, and people to discover. Explore now.
         </p>
         
