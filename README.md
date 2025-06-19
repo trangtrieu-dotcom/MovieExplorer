@@ -18,7 +18,7 @@ A modern, responsive web application for exploring movies and TV shows. Built wi
 - **Frontend**: React 19, React Router DOM
 - **Styling**: Tailwind CSS, DaisyUI
 - **Icons**: Lucide React
-- **HTTP Client**: Axios
+- **HTTP Client**: Fetch API
 - **Carousel**: React Slick
 - **API**: The Movie Database (TMDB) API
 
@@ -117,14 +117,6 @@ This application integrates with The Movie Database (TMDB) API to provide:
 - **Modern Components**: Built with DaisyUI for consistent styling
 - **Smooth Animations**: Interactive carousels and transitions
 - **Accessibility**: Semantic HTML and keyboard navigation support
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📝 License
 
