@@ -71,7 +71,7 @@ export default function UpComingMovies() {
     <div className="w-full">
       {/* loading/error state */}
       {loading ? (
-        <div className="text-center text-white">Loading...</div>
+        <div className="text-center">Loading...</div>
       ) : error ? (
         <div className="text-center text-error">{error}</div>
       ) : (
@@ -94,7 +94,7 @@ export default function UpComingMovies() {
                 <div
                   className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-t-lg"
                 >
-                  <Play size={48} className="text-white" />
+                  <Play size={48} />
                 </div>
               </div>
 

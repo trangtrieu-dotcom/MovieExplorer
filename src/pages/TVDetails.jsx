@@ -40,7 +40,7 @@ function TVDetails() {
   }, [id]);
 
   if (!tvShow || !credits) {
-    return <div className="text-center text-white mt-10">Loading...</div>;
+    return <div className="text-center mt-10">Loading...</div>;
   }
 
   const director = credits.crew.find((person) => person.job === "Director");

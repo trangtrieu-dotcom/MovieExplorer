@@ -6,3 +6,21 @@
 li {
   font-size: 1rem;
 }
+
+/* slick carousel chevron light mode */
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+

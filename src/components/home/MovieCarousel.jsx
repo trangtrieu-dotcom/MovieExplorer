@@ -46,7 +46,7 @@ function MovieCarousel({ type, title, fetchMovie, initialMovies }) {
 
   // responsive carousel setup from react-slick tailwind library
   const settings = {
-    dots: false,
+    dots: true,
     infinite: movies.length >= 8,
     speed: 500,
     arrows: movies.length > 8,
