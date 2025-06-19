@@ -16,11 +16,11 @@ export default function CastCard({ actor }) {
                 />
             ) : (
                 <div className="w-32 h-32 rounded-full bg-base-200 flex items-center justify-center mb-2">
-                    <User size={40} className="text-gray-400" />
+                    <User size={40} className="" />
                 </div>
             )}
             <p className="text-sm font-semibold">{actor.name}</p>
-            <p className="text-xs text-gray-400">{actor.character}</p>
+            <p className="text-xs ">{actor.character}</p>
         </div>
     )
 }

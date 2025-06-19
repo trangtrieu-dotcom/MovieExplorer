@@ -1,14 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { authService } from '../services/auth';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { authService } from "../services/auth";
 
 const AuthContext = createContext();
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
-  
+
   return context;
 };
 
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUser(null);
     }
-    
+
     setLoading(false);
   };
 
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   const login = async () => {
     if (authService.isAuthenticated()) {
       setIsAuthenticated(true);
-      
+
       try {
         const userDetails = await authService.getUserDetails();
         setUser(userDetails);
@@ -62,21 +62,24 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     // Clear authentication service data
     authService.logout();
-    
+
     // Clear context state
     setIsAuthenticated(false);
     setUser(null);
-    
+
     // Clear the localStorage items
-    localStorage.removeItem('session_id');
-    localStorage.removeItem('request_token');
+    localStorage.removeItem("session_id");
+    localStorage.removeItem("request_token");
   };
 
-  const value = {isAuthenticated, user, loading, login, logout, checkAuthStatus};
+  const value = {
+    isAuthenticated,
+    user,
+    loading,
+    login,
+    logout,
+    checkAuthStatus,
+  };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
-}; 
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};

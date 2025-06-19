@@ -84,7 +84,7 @@ function MovieHero({ movie, trailerKey }) {
     };
 
     return (
-        <div className="bg-cover bg-center text-white py-10 px-4"
+        <div className="bg-cover bg-center py-10 px-4"
         style={{ backgroundImage: `url(${BACKDROP_URL + backdrop_path})` }}
         >
             <div className="bg-black/70 p-6 rounded-lg max-w-6xl mx-auto shadow-lg">
@@ -93,14 +93,14 @@ function MovieHero({ movie, trailerKey }) {
                         <h1 className="text-3xl font-bold">
                             {title} <span className="text-grey-300">({year})</span>
                         </h1>
-                        <p className="text-sm text-gray-300">
+                        <p className="text-sm ">
                             {genreList} • {runtime} min
                         </p>
                     </div>
                     
                     <div className="flex gap-4 items-center">
                         <div>
-                            <p className="text-sm text-gray-400">User Rating</p>
+                            <p className="text-sm ">User Rating</p>
                             <p className="flex items-center text-yellow-400 font-bold"><Star className="fill-yellow-400 mr-1" size={18}/>  {rating}/10</p>
                         </div>
                         <button 
@@ -146,12 +146,12 @@ function MovieHero({ movie, trailerKey }) {
                             </div>
                             
                         ): (
-                            <p className="text-gray-300 ml-6">No trailer available</p>
+                            <p className=" ml-6">No trailer available</p>
                         )}
                     
                 </div>
 
-                <div className="text-sm text-gray-400 mt-6">
+                <div className="text-sm  mt-6">
                     <p>
                         ({original_language?.toUpperCase()} • {status})
                     </p>

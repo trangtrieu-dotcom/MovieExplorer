@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "../../context/ThemeContext";
 
 function SearchBar() {
-  const [searchQuery, setSearchQuery] = useState("");
+  // state management
+  const [searchQuery, setSearchQuery] = useState(""); //searchQuery: current search input value
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  const { theme } = useTheme();
+  const navigate = useNavigate(); // validate search query
+
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!searchQuery.trim()) return;
-    setIsLoading(true);
-    setError(null);
+    if (!searchQuery.trim()) return; // prevent empty searches
+    
+    setIsLoading(true); 
+    setError(null); // clear any previous errors
+    
+    // navigate to search results page with url encoded query 
     navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     setIsLoading(false);
   };
 
   return (
-    // background image
+    // hero section
     <div
       className="flex flex-col items-center w-full mb-10 bg-base-200 py-12 relative overflow-hidden"
       style={{
@@ -28,17 +31,16 @@ function SearchBar() {
         backgroundPosition: "center",
       }}
     >
-      {/* searchbar section */}
       <div className="absolute inset-0 bg-base-200/40 z-0" />
+      
       <div className="w-full max-w-3xl relative z-10">
         {/* title and subtitle */}
-        <h1 className={`text-2xl font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-          Welcome.
-        </h1>
-        <p className={`text-base mb-4 ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
+        <h1 className="text-2xl font-bold text-white mb-1">Welcome.</h1>
+        <p className="text-base text-gray-200 mb-4">
           Millions of movies, TV shows, and people to discover. Explore now.
         </p>
-        {/* searchbar */}
+        
+        {/* search form */}
         <form onSubmit={handleSearch} className="flex w-full relative">
           <input
             type="text"
@@ -47,7 +49,7 @@ function SearchBar() {
             placeholder="Search for movie, tv show, person..."
             className="input input-bordered rounded-full w-full bg-white text-black placeholder-gray-500 focus:outline-none"
           />
-          {/* search button */}
+          
           <button
             type="submit"
             className="btn btn-neutral rounded-full ml-2 px-6"
@@ -55,6 +57,8 @@ function SearchBar() {
           >
             {isLoading ? "Searching..." : "Search"}
           </button>
+          
+          {/* error message display */}
           {error && (
             <div className="absolute top-full left-0 right-0 mt-2 bg-error text-error-content p-2 rounded-lg text-sm">
               {error}

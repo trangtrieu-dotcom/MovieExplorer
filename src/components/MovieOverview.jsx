@@ -10,12 +10,12 @@ function MovieOverview({ movie, director, topCast}) {
                     {movie.overview || "No description available."}
                 </p>
 
-                <p className="text-sm text-gray-400 mb-1">
+                <p className="text-sm mb-1">
                     <span className="font-semibold text-base-content">Director:</span>{" "}
                     {director?.name || "Unknown"}
                 </p>
 
-                <p className="text-sm text-gray-400">
+                <p className="text-sm ">
                     <span className="font-semibold text-base-content">Stars:</span>{" "}
                     {topCast && topCast.length > 0
                         ? topCast.slice(0, 3).map((actor) => actor.name).join(", ") : "Unknown"}
