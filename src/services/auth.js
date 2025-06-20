@@ -1,6 +1,5 @@
 const BEARER_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOWYzMGE3YjExMDFiM2IzNTIxYWZhMjQwMTAxNzRmMyIsIm5iZiI6MTc0OTczNDA4My45ODEsInN1YiI6IjY4NGFkMmMzZWJkNzI0NGU2ZTMwMmE3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FIM64IJGN_PxPOFz-l9TNeRrHUj3dRiMDo15CMe_Kl4";
 const BASE_URL = "https://api.themoviedb.org/3";
-const REDIRECT_URL = "http://localhost:3000/login";
 
 // Authentication service for TMDB GUIDE (Fetch Request + token guide)
 export const authService = {
@@ -24,10 +23,7 @@ export const authService = {
     }
   },
 
-  // Get the TMDB authentication URL (redirect method first one in the list of 3 in the guide)
-  getAuthUrl: (requestToken) => {
-    return `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${encodeURIComponent(REDIRECT_URL)}`;
-  },
+
 
   // Validate the token with a username/password (third one with login option in the guide)
   tokenValidation: async (username, password) => {
