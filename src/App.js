@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Footer from "./components/layout/Footer";
 import TVDetails from "./pages/TVDetails";
 import SearchResult from "./pages/SearchResult";
+import Movies from "./pages/Movies";
+import TVShows from "./pages/TVShows";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/favorites-watchlist" element={<Favorite />} />
+                <Route path="/movies" element={<Movies />} />
                 <Route path="/movie/:id" element={<MovieDetails />} />
+                <Route path="/tv-shows" element={<TVShows />} />
                 <Route path="/tv/:id" element={<TVDetails />} />
                 <Route path="/search" element={<SearchResult />} />
               </Routes>

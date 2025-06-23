@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import SearchBar from "../components/home/SearchBar";
-import SideBar from "../components/SideBar";
+import SearchBar from "../components/search/SearchBar";
+import SearchSidebar from "../components/search/SearchSidebar";
 import { searchMulti } from "../services/api";
 
 // order of category
@@ -132,7 +132,7 @@ export default function SearchResults() {
       {/* main content area */}
       <div className="flex bg-base-100 text-base-content">
         {/* Category filter sidebar */}
-        <SideBar 
+        <SearchSidebar 
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           counts={counts}

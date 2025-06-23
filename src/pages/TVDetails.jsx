@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TVHero from "../components/TVHero";
-import MovieOverview from "../components/MovieOverview";
-import CastSection from "../components/CastSection";
+import TVHero from "../components/movie-tv/TVHero";
+import MovieOverview from "../components/movie-tv/MovieOverview";
+import CastSection from "../components/casting/CastSection";
 import { getTVDetails, getTVCredits, getTVVideos, getSimilarTVShows } from "../services/api";
-import SimilarTV from "../components/SimilarTV";
+import SimilarTV from "../components/movie-tv/SimilarTV";
 
 
 function TVDetails() {

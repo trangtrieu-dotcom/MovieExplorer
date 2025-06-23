@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCarousel from '../components/home/MovieCarousel';
+import MovieCarousel from '../components/movie-tv/MovieCarousel';
 import { authService } from '../services/auth';
 
 const Favorite = () => {

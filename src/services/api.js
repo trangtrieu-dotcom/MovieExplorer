@@ -110,6 +110,71 @@ export const getSimilarTVShows = async (id) => {
   return data.results;
 };
 
+// discover movies based on filters
+export const discoverMovies = async (filters) => {
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+    ...filters,
+  });
+  const response = await fetch(`${BASE_URL}/discover/movie?${params}`);
+  return response.json();
+};
+
+// discover tv shows based on filters
+export const discoverTVShows = async (filters) => {
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+    ...filters,
+  });
+  const response = await fetch(`${BASE_URL}/discover/tv?${params}`);
+  return response.json();
+};
+
+// fetch all movie genres
+export const getMovieGenres = async () => {
+  const response = await fetch(
+    `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.genres;
+};
+
+// fetch all tv show genres
+export const getTVGenres = async () => {
+  const response = await fetch(`${BASE_URL}/genre/tv/list?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.genres;
+};
+
+// fetch all movie certifications
+export const getMovieCertifications = async () => {
+  const response = await fetch(
+    `${BASE_URL}/certification/movie/list?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.certifications;
+};
+
+// fetch all tv show certifications
+export const getTVCertifications = async () => {
+  const response = await fetch(
+    `${BASE_URL}/certification/tv/list?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.certifications;
+};
+
+// search for keywords by query
+export const searchKeywords = async (query) => {
+  const response = await fetch(
+    `${BASE_URL}/search/keyword?api_key=${API_KEY}&query=${encodeURIComponent(
+      query
+    )}`
+  );
+  const data = await response.json();
+  return data.results;
+};
+
 // GET the customer's account ID
 export const getAccountId = async () => {
   const sessionId = localStorage.getItem("session_id");
