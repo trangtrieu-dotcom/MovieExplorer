@@ -1,10 +1,10 @@
 import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"; 
-import MovieHero from "../components/MovieHero";
-import MovieOverview from "../components/MovieOverview";
-import CastSection from "../components/CastSection";
-import SimilarMovies from "../components/SimilarMovies";
+import MovieHero from "../components/movie-tv/MovieHero";
+import MovieOverview from "../components/movie-tv/MovieOverview";
+import CastSection from "../components/casting/CastSection";
+import SimilarMovies from "../components/movie-tv/SimilarMovies";
 import { getMovieDetails, getMovieCredits, getMovieVideos, getSimilarMovies } from "../services/api";
 
 

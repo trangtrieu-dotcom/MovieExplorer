@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Star, Heart, Bookmark, Film } from "lucide-react";
 import TrailerModal from "./TrailerModal";
-import { addToFavorites, addToWatchlist } from "../services/api";
-import { authService } from "../services/auth";
-import { getUserFavoriteTVShows, getUserWatchlistTVShows } from "../services/api";
+import { addToFavorites, addToWatchlist } from "../../services/api";
+import { authService } from "../../services/auth";
+import { getUserFavoriteTVShows, getUserWatchlistTVShows } from "../../services/api";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_URL = "https://image.tmdb.org/t/p/original";

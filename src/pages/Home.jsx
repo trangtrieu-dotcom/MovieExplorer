@@ -1,6 +1,6 @@
-import MovieCarousel from "../components/home/MovieCarousel.jsx";
-import SearchBar from "../components/home/SearchBar.jsx";
-import UpcomingMovies from "../components/home/UpcomingMovies.jsx";
+import MovieCarousel from "../components/movie-tv/MovieCarousel.jsx";
+import SearchBar from "../components/search/SearchBar.jsx";
+import UpcomingMovies from "../components/movie-tv/UpcomingMovies.jsx";
 
 function Home() {
   return (

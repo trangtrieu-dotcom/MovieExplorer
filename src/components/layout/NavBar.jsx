@@ -28,7 +28,7 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/movies">Movies</Link></li>
-            <li><Link to="/tv">TV Shows</Link></li>
+            <li><Link to="/tv-shows">TV Shows</Link></li>
             <li><Link to="/people">People</Link></li>
             {isAuthenticated && (
               <li><Link to="/favorites-watchlist">Favorites/Watchlist</Link></li>
@@ -48,7 +48,7 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1 whitespace-nowrap flex-nowrap">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/movies">Movies</Link></li>
-          <li><Link to="/tv">TV Shows</Link></li>
+          <li><Link to="/tv-shows">TV Shows</Link></li>
           <li><Link to="/people">People</Link></li>
           {isAuthenticated && (
             <li><Link to="/favorites-watchlist">Favorites/Watchlist</Link></li>

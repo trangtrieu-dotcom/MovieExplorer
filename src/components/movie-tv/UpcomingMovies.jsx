@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getUpcomingMovies, getMovieVideos } from "../../services/api";
-import TrailerModal from "../TrailerModal";
+import TrailerModal from "./TrailerModal";
 import { Play } from "lucide-react";
 
 // get youtube thumbnail from video key
