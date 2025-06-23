@@ -40,7 +40,7 @@ const MovieCard = ({ movie }) => {
           </h2>
           {/* release date */}
           <p className=" text-xs">
-            {releaseDate ? new Date(movie.release_date).toLocaleDateString() : "Unknown release date"}
+            {releaseDate ? new Date(releaseDate).toLocaleDateString() : "Unknown release date"}
           </p>
         </div>
       </div>
