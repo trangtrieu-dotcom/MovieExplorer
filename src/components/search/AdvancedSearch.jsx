@@ -172,8 +172,8 @@ const AdvancedSearch = ({ mediaType }) => {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold">
-          {mediaType === "movie" ? "Popular Movies" : "Popular TV Shows"}
+        <h1 className="text-3xl font-bold ml-5">
+          {mediaType === "movie" ? "All Movies" : "All TV Shows"}
         </h1>
         <button
           className="btn btn-ghost lg:hidden"
