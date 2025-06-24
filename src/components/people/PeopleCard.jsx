@@ -10,7 +10,7 @@ const PeopleCard = ({ person }) => {
   const bestWork = person.known_for?.map(item => item.title || item.name).join(", ") || "Not available";
 
   return (
-    <div className="bg-white border rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-base-200 border border-base-300 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300">
       {/* Person's Photo */}
       <div className="w-full aspect-square overflow-hidden rounded-t-lg">
         <img
@@ -28,12 +28,12 @@ const PeopleCard = ({ person }) => {
         </div>
         
         {/* Person's Name */}
-        <h3 className="text-lg font-bold text-black mb-1">
+        <h3 className="text-lg font-bold text-base-content mb-1">
           {person.name}
         </h3>
         
         {/* Movies/Shows */}
-        <p className="text-sm text-black">
+        <p className="text-sm text-base-content">
           {bestWork}
         </p>
       </div>
