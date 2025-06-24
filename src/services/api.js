@@ -290,3 +290,21 @@ export const getUserWatchlistTVShows = async () => {
   const data = await response.json();
   return data.results;
 };
+
+// PEOPLE
+
+// fetch popular people with pagination
+export const getPopularPeople = async (page = 1) => {
+  const response = await fetch(
+    `${BASE_URL}/person/popular?api_key=${API_KEY}&page=${page}`
+  );
+  const data = await response.json();
+  return data;
+};
+
+// fetch person details
+export const getPersonDetails = async (id) => {
+  const response = await fetch(`${BASE_URL}/person/${id}?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data;
+};

@@ -11,6 +11,7 @@ import TVDetails from "./pages/TVDetails";
 import SearchResult from "./pages/SearchResult";
 import Movies from "./pages/Movies";
 import TVShows from "./pages/TVShows";
+import People from "./pages/People";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/tv-shows" element={<TVShows />} />
                 <Route path="/tv/:id" element={<TVDetails />} />
                 <Route path="/search" element={<SearchResult />} />
+                <Route path="/people" element={<People />} />
               </Routes>
             </main>
             <Footer />
