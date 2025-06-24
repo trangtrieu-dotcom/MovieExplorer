@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PeopleCard = ({ person }) => {
   // Create the image URL
@@ -10,6 +11,7 @@ const PeopleCard = ({ person }) => {
   const bestWork = person.known_for?.map(item => item.title || item.name).join(", ") || "Not available";
 
   return (
+    <Link to={`/person/${person.id}`} className="block">
     <div className="bg-base-200 border border-base-300 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300">
       {/* Person's Photo */}
       <div className="w-full aspect-square overflow-hidden rounded-t-lg">
@@ -38,6 +40,7 @@ const PeopleCard = ({ person }) => {
         </p>
       </div>
     </div>
+    </Link>
   );
 };
 

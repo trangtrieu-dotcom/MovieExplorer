@@ -308,3 +308,11 @@ export const getPersonDetails = async (id) => {
   const data = await response.json();
   return data;
 };
+
+// Get person combined credits (movies + TV)
+export const getPersonCredits = async (personId) => {
+  const res = await fetch(`${BASE_URL}/person/${personId}/combined_credits?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
