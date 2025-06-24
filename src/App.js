@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Footer from "./components/layout/Footer";
 import TVDetails from "./pages/TVDetails";
 import SearchResult from "./pages/SearchResult";
+import ActorDetails from "./pages/ActorDetails";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/movie/:id" element={<MovieDetails />} />
                 <Route path="/tv/:id" element={<TVDetails />} />
                 <Route path="/search" element={<SearchResult />} />
+                <Route path="/person/:id" element={<ActorDetails />} />
               </Routes>
             </main>
             <Footer />

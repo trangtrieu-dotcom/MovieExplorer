@@ -225,3 +225,17 @@ export const getUserWatchlistTVShows = async () => {
   const data = await response.json();
   return data.results;
 };
+
+// Get person details
+export const getPersonDetails = async (personId) => {
+  const res = await fetch(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
+
+// Get person combined credits (movies + TV)
+export const getPersonCredits = async (personId) => {
+  const res = await fetch(`${BASE_URL}/person/${personId}/combined_credits?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data;
+};
